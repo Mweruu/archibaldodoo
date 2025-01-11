@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!-- Purchase Order Form View Inheritance for Vendor Selection -->
+        <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <!-- Add the vendor_ids field after the partner_id field -->
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="vendor_ids" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

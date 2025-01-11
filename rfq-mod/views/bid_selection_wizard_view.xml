@@ -1,0 +1,24 @@
+<!-- Wizard Form View -->
+<odoo> 
+  <data>
+    <record id="view_bid_selection_wizard" model="ir.ui.view">
+        <field name="name">bid.selection.wizard.form</field>
+        <field name="model">bid.selection.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Select Winning Bid">
+                <sheet>
+                    <group>
+                        <field name="rfq_id"/>
+                        <field name="bid_ids" widget="many2many_tags"/>
+                        <field name="winning_bid_id"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Confirm" type="object" name="action_confirm_winner" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>

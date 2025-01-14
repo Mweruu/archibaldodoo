@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_application" model="ir.actions.act_window">
+        <field name="name">Application</field>
+        <field name="res_model">application</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+            <p>
+                Click create to create application.
+            </p>
+        </field>
+    </record>
+   <record id="application_view_form" model="ir.ui.view">
+      <field name="name">application.view.form</field>
+      <field name="model">application</field>
+      <field name="arch" type="xml">
+          <form string = "Application" create="true" delete="true" edit="true">
+              <header>
+
+                  <field name="state" widget="statusbar"/>
+                  <button string="Confirm" name="action_confirm"
+                          type="object"/>
+              </header>
+              <sheet>
+<!--                  <div class="oe_title">-->
+<!--                      <div>-->
+<!--                          <label for="name"/>-->
+<!--                      </div>-->
+<!--                      <h1 class="mb32">-->
+<!--                          <field name="name" class="mb16"/>-->
+<!--                      </h1>-->
+<!--                  </div>-->
+                  <group>
+                      <group>
+                          <field name="name"/>
+                          <field name="surname"/>
+                          <field name="dob"/>
+                      </group>
+                      <group>
+                          <field name="country"/>
+                          <field name="location"/>
+                          <field name="picture" widget='image' />
+                      </group>
+                  </group>
+              </sheet>
+              <div class="oe_chatter">
+                  <field name="message_follower_ids" groups="base.group_user"/>
+                  <field name="message_ids" widget="mail_thread"/>
+              </div>
+          </form>
+      </field>
+   </record>
+
+    <record id="application_view_tree" model="ir.ui.view">
+        <field name="name">application.tree</field>
+        <field name="model">application</field>
+        <field name="arch" type="xml">
+            <tree create="true" edit="true">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="dob"/>
+                <field name="country"/>
+                <field name="location"/>
+                <field name="picture"/>
+            </tree>
+        </field>
+    </record>
+
+        <menuitem
+            id="menu_application"
+            name="Application"
+            parent="point_of_sale.menu_point_root"
+            action="action_application"
+            sequence="57"/>
+</odoo>
